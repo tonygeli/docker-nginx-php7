@@ -34,16 +34,13 @@ Note that the ``/var/www/public`` is the root folder for serving PHP files for y
 
 ### Example
 1. This will create a my_mysql or my_postgres image based on official mysql or postgres docker image.  
-
 `$ docker run -p 3306:3306 --name my_mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql`  
 `$ docker run -p 3306:3306 --name my_postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
 
 2. build image by dockerfile  
-
 `docker build docker-nginx-php7`
 
 3. This will create a docker image with name `my_lnmp7` linked to the MySQL container (my_mysql). Configue Laravel to connect to `mysqldb` host on .env file to access the database.  
-
 `docker run -p 80:80 -p 9000:9000 --name my_lnmp7 -v ~/Documents/code:/var/www --link my_mysql:mysqldb -d lnmp7`
 
 4. Run a command in a running container  
